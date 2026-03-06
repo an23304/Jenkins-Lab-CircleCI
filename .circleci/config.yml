@@ -16,6 +16,9 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+      - run:
+          name: "Run index.js"
+          command: node index.js
       
 workflows:
   say-hello-workflow:
