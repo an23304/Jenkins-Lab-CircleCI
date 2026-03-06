@@ -8,8 +8,20 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, CircleCI!"
+
+  build-node:
+    docker:
+      - image: cimg/node:18.17
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test
+      
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-
+      
+  node-workflow:
+    jobs:
+      - build-node
